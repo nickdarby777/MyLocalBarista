@@ -1,0 +1,209 @@
+/* 
+===========================================
+CSS VARIABLES - CUSTOMIZATION CONTROL CENTER
+===========================================
+
+This file contains all the CSS custom properties (variables) that control
+the appearance of the MyLocalBarista landing page. These variables are 
+dynamically updated by the JavaScript customization panel.
+
+STRUCTURE:
+- Color Variables: Primary, secondary, and accent colors with variations
+- Roundedness Variables: Border radius values for all rounded elements
+- Derived Colors: Automatically calculated variations for hover states, etc.
+
+HOW IT WORKS:
+- The customization panel JavaScript updates these :root variables
+- All other CSS files reference these variables using var(--variable-name)
+- Changes are applied instantly across the entire page
+*/
+
+:root {
+    /* ===========================================
+       PRIMARY COLOR SYSTEM
+       =========================================== */
+    
+    /* Main brand colors - These are updated by the customization panel */
+    --primary-color: #8B4513;      /* Rich brown - main brand color */
+    --secondary-color: #D2691E;    /* Warm orange - secondary actions */
+    --accent-color: #F4E4C1;       /* Light cream - accent highlights */
+    
+    /* Automatically calculated color variations for better UX */
+    --primary-dark: color-mix(in srgb, var(--primary-color) 85%, black);
+    --primary-light: color-mix(in srgb, var(--primary-color) 20%, white);
+    --primary-ultra-light: color-mix(in srgb, var(--primary-color) 5%, white);
+    
+    --secondary-dark: color-mix(in srgb, var(--secondary-color) 85%, black);
+    --secondary-light: color-mix(in srgb, var(--secondary-color) 20%, white);
+    
+    --accent-dark: color-mix(in srgb, var(--accent-color) 70%, black);
+    --accent-light: color-mix(in srgb, var(--accent-color) 10%, white);
+    
+    /* ===========================================
+       ROUNDEDNESS SYSTEM
+       =========================================== */
+    
+    /* Base roundedness value - Updated by the roundedness slider */
+    --border-radius-base: 8px;
+    
+    /* Calculated roundedness values for different elements */
+    --border-radius-small: calc(var(--border-radius-base) * 0.5);    /* 4px default */
+    --border-radius-medium: var(--border-radius-base);               /* 8px default */
+    --border-radius-large: calc(var(--border-radius-base) * 1.5);    /* 12px default */
+    --border-radius-xl: calc(var(--border-radius-base) * 2);         /* 16px default */
+    --border-radius-full: 9999px; /* Always fully rounded for circular elements */
+    
+    /* ===========================================
+       NEUTRAL COLORS
+       =========================================== */
+    
+    /* Grayscale colors that work with any color scheme */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-gray-300: #d1d5db;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-800: #1f2937;
+    --color-gray-900: #111827;
+    
+    /* ===========================================
+       SEMANTIC COLORS
+       =========================================== */
+    
+    /* Status and feedback colors */
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #3b82f6;
+    
+    /* Success variations */
+    --color-success-light: color-mix(in srgb, var(--color-success) 20%, white);
+    --color-success-dark: color-mix(in srgb, var(--color-success) 85%, black);
+    
+    /* ===========================================
+       TYPOGRAPHY VARIABLES
+       =========================================== */
+    
+    /* Font families */
+    --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+    
+    /* Font weights */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* ===========================================
+       SPACING SYSTEM
+       =========================================== */
+    
+    /* Consistent spacing scale */
+    --space-xs: 0.25rem;   /* 4px */
+    --space-sm: 0.5rem;    /* 8px */
+    --space-md: 1rem;      /* 16px */
+    --space-lg: 1.5rem;    /* 24px */
+    --space-xl: 2rem;      /* 32px */
+    --space-2xl: 3rem;     /* 48px */
+    --space-3xl: 4rem;     /* 64px */
+    --space-4xl: 6rem;     /* 96px */
+    
+    /* ===========================================
+       SHADOW SYSTEM
+       =========================================== */
+    
+    /* Layered shadow system for depth */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    
+    /* Colored shadows using brand colors */
+    --shadow-primary: 0 4px 14px 0 color-mix(in srgb, var(--primary-color) 25%, transparent);
+    --shadow-secondary: 0 4px 14px 0 color-mix(in srgb, var(--secondary-color) 25%, transparent);
+    
+    /* ===========================================
+       ANIMATION & TRANSITION VARIABLES
+       =========================================== */
+    
+    /* Consistent timing for smooth interactions */
+    --transition-fast: 150ms ease-out;
+    --transition-normal: 250ms ease-out;
+    --transition-slow: 350ms ease-out;
+    
+    /* Animation easings */
+    --ease-in-out-cubic: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* ===========================================
+       BREAKPOINTS (for reference in CSS)
+       =========================================== */
+    
+    /* Mobile-first responsive breakpoints */
+    --breakpoint-sm: 640px;   /* Small tablets */
+    --breakpoint-md: 768px;   /* Tablets */
+    --breakpoint-lg: 1024px;  /* Small laptops */
+    --breakpoint-xl: 1280px;  /* Large screens */
+    --breakpoint-2xl: 1536px; /* Very large screens */
+    
+    /* ===========================================
+       Z-INDEX SYSTEM
+       =========================================== */
+    
+    /* Consistent layering system */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    --z-toast: 1080;
+}
+
+/* ===========================================
+   THEME-SPECIFIC OVERRIDES
+   =========================================== 
+   
+   These can be modified by different style themes
+   to create unique variations while maintaining
+   the same customizable color system.
+*/
+
+/* Default theme values - these are the fallbacks */
+:root {
+    --theme-background: var(--color-white);
+    --theme-surface: var(--color-gray-50);
+    --theme-text-primary: var(--color-gray-900);
+    --theme-text-secondary: var(--color-gray-600);
+    --theme-border: var(--color-gray-200);
+}
+
+/* ===========================================
+   DEBUGGING HELPERS
+   =========================================== 
+   
+   Uncomment these to see variable values in dev tools
+*/
+
+/*
+body::before {
+    content: "Primary: " var(--primary-color) " | Secondary: " var(--secondary-color) " | Accent: " var(--accent-color) " | Roundedness: " var(--border-radius-base);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: black;
+    color: white;
+    padding: 4px 8px;
+    font-size: 10px;
+    z-index: 9999;
+    font-family: monospace;
+}
+*/

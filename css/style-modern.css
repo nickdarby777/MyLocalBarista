@@ -1,0 +1,683 @@
+/* 
+===========================================
+MODERN MINIMALIST THEME
+===========================================
+
+This theme creates a clean, contemporary aesthetic with:
+- Clean lines and generous whitespace
+- Bold typography and modern layouts
+- Geometric shapes and minimal decorations
+- Fresh, tech-forward appearance
+
+This is Theme 2 of 3 available themes.
+All colors and roundedness are still fully customizable via the panel.
+*/
+
+/* ===========================================
+   THEME-SPECIFIC VARIABLE OVERRIDES
+   =========================================== */
+
+:root {
+    /* Modern theme surface colors */
+    --theme-background: var(--color-white);
+    --theme-surface: var(--color-gray-50);
+    --theme-text-primary: var(--color-gray-900);
+    --theme-text-secondary: var(--color-gray-600);
+    --theme-border: var(--color-gray-200);
+    
+    /* Modern-specific spacing (tighter, more precise) */
+    --modern-section-padding: var(--space-3xl);
+    --modern-card-padding: var(--space-xl);
+}
+
+/* ===========================================
+   MAIN CONTENT LAYOUT
+   =========================================== */
+
+.main-content {
+    position: relative;
+    margin-left: 0;
+    transition: margin-left var(--transition-slow);
+    background: var(--theme-background);
+    min-height: 100vh;
+}
+
+.main-content.panel-open {
+    margin-left: 320px;
+}
+
+@media (max-width: 1024px) {
+    .main-content.panel-open {
+        margin-left: 0;
+    }
+}
+
+/* ===========================================
+   HERO SECTION - CLEAN & BOLD
+   =========================================== */
+
+.hero-section {
+    position: relative;
+    padding: var(--modern-section-padding) 0;
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-100);
+}
+
+/* Modern geometric background pattern */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        color-mix(in srgb, var(--primary-color) 2%, transparent) 0%,
+        color-mix(in srgb, var(--accent-color) 5%, transparent) 100%);
+    clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+    pointer-events: none;
+}
+
+/* Navigation - Modern horizontal with subtle styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3xl);
+    padding: var(--space-lg) 0;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.nav-icon {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+}
+
+.brand-name {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin-bottom: 0;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--space-2xl);
+}
+
+.nav-link {
+    font-weight: var(--font-weight-medium);
+    color: var(--theme-text-primary);
+    padding: var(--space-sm) 0;
+    transition: var(--transition-normal);
+    position: relative;
+    font-size: 0.95rem;
+}
+
+/* Modern underline effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition-normal);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: var(--space-lg);
+        text-align: center;
+    }
+    
+    .nav-links {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-lg);
+    }
+}
+
+/* Hero Content - Modern asymmetric layout */
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-4xl);
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text {
+    max-width: 550px;
+}
+
+.hero-title {
+    font-family: var(--font-primary);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--theme-text-primary);
+    margin-bottom: var(--space-lg);
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+/* Modern accent on first word */
+.hero-title::first-line {
+    color: var(--primary-color);
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--theme-text-secondary);
+    margin-bottom: var(--space-2xl);
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+/* Hero illustration - Modern geometric coffee cup */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.coffee-illustration {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--border-radius-xl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 
+        var(--shadow-xl),
+        0 0 50px color-mix(in srgb, var(--primary-color) 20%, transparent);
+    transform: rotate(5deg);
+}
+
+/* Modern geometric overlay */
+.coffee-illustration::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 60px;
+    height: 60px;
+    background: var(--secondary-color);
+    border-radius: var(--border-radius-medium);
+    transform: rotate(-15deg);
+    box-shadow: var(--shadow-lg);
+}
+
+.coffee-illustration::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    width: 40px;
+    height: 40px;
+    background: var(--accent-color);
+    border-radius: var(--border-radius-full);
+    box-shadow: var(--shadow-md);
+}
+
+.hero-coffee-icon {
+    font-size: 6rem;
+    color: var(--color-white);
+    z-index: 2;
+    position: relative;
+}
+
+/* Responsive hero layout */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-2xl);
+    }
+    
+    .coffee-illustration {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .hero-coffee-icon {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* ===========================================
+   SERVICES SECTION - MODERN GRID LAYOUT
+   =========================================== */
+
+.services-section {
+    padding: var(--modern-section-padding) 0;
+    background: var(--color-gray-50);
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-title {
+    color: var(--theme-text-primary);
+    margin-bottom: var(--space-md);
+    position: relative;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -1px;
+}
+
+/* Modern accent line */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -var(--space-sm);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--primary-color);
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--theme-text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Services Grid - Modern card layout */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-3xl);
+}
+
+/* Service Cards - Clean and modern */
+.service-card {
+    background: var(--color-white);
+    padding: var(--modern-card-padding);
+    border-radius: var(--border-radius-large);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-slow);
+    position: relative;
+    border: 1px solid var(--color-gray-200);
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+}
+
+/* Featured service card - Modern accent */
+.service-card.featured {
+    border: 2px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--color-white) 0%, color-mix(in srgb, var(--primary-color) 2%, var(--color-white)) 100%);
+}
+
+.featured-badge {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: var(--primary-color);
+    color: var(--color-white);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--border-radius-full);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Service card content */
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    border-radius: var(--border-radius-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+    position: relative;
+}
+
+.service-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: calc(var(--border-radius-medium) + 2px);
+    z-index: -1;
+}
+
+.service-icon i {
+    font-size: 1.5rem;
+    color: var(--color-white);
+    z-index: 2;
+}
+
+.service-title {
+    color: var(--theme-text-primary);
+    margin-bottom: var(--space-xs);
+    font-size: 1.375rem;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: -0.5px;
+}
+
+.service-subtitle {
+    color: var(--primary-color);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-lg);
+    font-size: 0.95rem;
+}
+
+.service-description {
+    color: var(--theme-text-secondary);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Service features - Modern list styling */
+.service-features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--theme-text-secondary);
+    font-size: 0.9rem;
+    padding: var(--space-sm) 0;
+}
+
+.feature-item i {
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    width: 14px;
+    flex-shrink: 0;
+}
+
+/* ===========================================
+   WAITLIST SECTION - MODERN FORM DESIGN
+   =========================================== */
+
+.waitlist-section {
+    padding: var(--modern-section-padding) 0;
+    background: var(--color-white);
+    position: relative;
+}
+
+.waitlist-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+}
+
+.waitlist-info {
+    position: sticky;
+    top: var(--space-xl);
+}
+
+.waitlist-title {
+    color: var(--theme-text-primary);
+    margin-bottom: var(--space-lg);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -1px;
+}
+
+.waitlist-description {
+    font-size: 1rem;
+    color: var(--theme-text-secondary);
+    margin-bottom: var(--space-xl);
+    line-height: 1.7;
+}
+
+.waitlist-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-gray-50);
+    border-radius: var(--border-radius-medium);
+    border-left: 3px solid var(--primary-color);
+    transition: var(--transition-normal);
+}
+
+.benefit-item:hover {
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.benefit-item i {
+    color: var(--primary-color);
+    font-size: 1.125rem;
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.benefit-item span {
+    color: var(--theme-text-primary);
+    font-weight: var(--font-weight-medium);
+    font-size: 0.95rem;
+}
+
+/* Waitlist Form Container - Modern clean design */
+.waitlist-form-container {
+    background: var(--color-white);
+    padding: var(--modern-card-padding);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-gray-200);
+    position: relative;
+}
+
+/* Enhanced form styling for modern theme */
+.waitlist-form .form-group {
+    margin-bottom: var(--space-lg);
+}
+
+.waitlist-form .form-label {
+    color: var(--theme-text-primary);
+    font-weight: var(--font-weight-medium);
+    font-size: 0.875rem;
+    margin-bottom: var(--space-sm);
+}
+
+.waitlist-form .form-input,
+.waitlist-form .form-select,
+.waitlist-form .form-textarea {
+    border: 1px solid var(--color-gray-300);
+    background: var(--color-white);
+    font-size: 0.95rem;
+    padding: var(--space-md);
+    border-radius: var(--border-radius-medium);
+    transition: var(--transition-normal);
+}
+
+.waitlist-form .form-input:focus,
+.waitlist-form .form-select:focus,
+.waitlist-form .form-textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 8%, transparent);
+}
+
+/* Modern radio buttons */
+.waitlist-form .radio-label {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--border-radius-small);
+    background: var(--color-white);
+    margin-bottom: var(--space-xs);
+    transition: var(--transition-normal);
+}
+
+.waitlist-form .radio-label:hover {
+    border-color: var(--primary-color);
+    background: color-mix(in srgb, var(--primary-color) 2%, var(--color-white));
+}
+
+.waitlist-form .radio-input:checked + .radio-custom {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Responsive waitlist section */
+@media (max-width: 1024px) {
+    .waitlist-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+    
+    .waitlist-info {
+        position: static;
+        text-align: center;
+    }
+}
+
+/* ===========================================
+   FOOTER - MODERN MINIMAL
+   =========================================== */
+
+.footer {
+    background: var(--theme-text-primary);
+    color: var(--color-white);
+    padding: var(--space-xl) 0;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.footer .nav-brand {
+    color: var(--color-white);
+}
+
+.footer .nav-icon {
+    color: var(--secondary-color);
+}
+
+.footer .brand-name {
+    color: var(--color-white);
+}
+
+.footer-tagline {
+    color: color-mix(in srgb, var(--color-white) 70%, transparent);
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--space-xl);
+}
+
+.footer-link {
+    color: color-mix(in srgb, var(--color-white) 80%, transparent);
+    font-weight: var(--font-weight-normal);
+    transition: var(--transition-normal);
+    font-size: 0.95rem;
+}
+
+.footer-link:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid color-mix(in srgb, var(--color-white) 10%, transparent);
+    color: color-mix(in srgb, var(--color-white) 60%, transparent);
+    font-size: 0.875rem;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-md);
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--space-md) var(--space-lg);
+    }
+}

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyLocalBarista - Premium Coffee Services</title>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Professional coffee-themed fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files - Order matters! -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style-classic.css" id="style-theme">
+    <link rel="stylesheet" href="css/customization-panel.css">
+</head>
+<body>
+    <!-- CUSTOMIZATION PANEL - Left sidebar for live editing -->
+    <div id="customization-panel" class="customization-panel">
+        <!-- Panel Header -->
+        <div class="panel-header">
+            <h3><i class="fas fa-palette"></i> Style Customizer</h3>
+            <button id="panel-toggle" class="panel-toggle" aria-label="Toggle customization panel">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Style Theme Selector -->
+        <div class="control-group">
+            <label>Landing Page Style:</label>
+            <select id="theme-selector" class="theme-selector">
+                <option value="classic">Classic Elegance</option>
+                <option value="modern">Modern Minimalist</option>
+                <option value="warm">Warm & Cozy</option>
+            </select>
+        </div>
+
+        <!-- Color Customization Section -->
+        <div class="control-group">
+            <label>Color Palette:</label>
+            
+            <div class="color-control">
+                <span>Primary Color:</span>
+                <input type="color" id="primary-color" value="#8B4513" class="color-picker">
+                <span class="color-value">#8B4513</span>
+            </div>
+            
+            <div class="color-control">
+                <span>Secondary Color:</span>
+                <input type="color" id="secondary-color" value="#D2691E" class="color-picker">
+                <span class="color-value">#D2691E</span>
+            </div>
+            
+            <div class="color-control">
+                <span>Accent Color:</span>
+                <input type="color" id="accent-color" value="#F4E4C1" class="color-picker">
+                <span class="color-value">#F4E4C1</span>
+            </div>
+        </div>
+
+        <!-- Roundedness Control -->
+        <div class="control-group">
+            <label>Border Roundedness:</label>
+            <div class="slider-control">
+                <input type="range" id="roundedness-slider" min="0" max="30" value="8" class="roundedness-slider">
+                <span class="slider-value">8px</span>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Panel Toggle Button - Visible when panel is closed -->
+    <button id="panel-open-btn" class="panel-open-btn" aria-label="Open customization panel">
+        <i class="fas fa-palette"></i>
+    </button>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+        <!-- HERO SECTION -->
+        <header class="hero-section">
+            <div class="container">
+                <!-- Navigation Bar -->
+                <nav class="navbar">
+                    <div class="nav-brand">
+                        <i class="fas fa-coffee nav-icon"></i>
+                        <h1 class="brand-name">MyLocalBarista</h1>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#services" class="nav-link">Services</a>
+                        <a href="#waitlist" class="nav-link">Join Waitlist</a>
+                    </div>
+                </nav>
+
+                <!-- Hero Content -->
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="hero-title">Elevate Your Coffee Experience</h2>
+                        <p class="hero-subtitle">
+                            Professional barista services bringing café-quality coffee culture 
+                            directly to your home, office, and special events.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#waitlist" class="btn btn-primary">Join Our Waitlist</a>
+                            <a href="#services" class="btn btn-secondary">Explore Services</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="coffee-illustration">
+                            <i class="fas fa-coffee hero-coffee-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Premium Services</h2>
+                    <p class="section-subtitle">
+                        Transform your coffee journey with our expert barista services
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1: Training -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="service-title">Training</h3>
+                        <p class="service-subtitle">Master espresso & latte art</p>
+                        <p class="service-description">
+                            Learn from certified baristas through hands-on training sessions. 
+                            Master espresso extraction, milk steaming, and create beautiful latte art 
+                            that will impress your friends and family.
+                        </p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>One-on-one instruction</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Hands-on practice</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Latte art techniques</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Events -->
+                    <div class="service-card">
+
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3 class="service-title">Events</h3>
+                        <p class="service-subtitle">Hire a barista for your next gathering</p>
+                        <p class="service-description">
+                            Make your events unforgettable with professional barista services. 
+                            Perfect for corporate meetings, weddings, parties, and special occasions. 
+                            We bring the café experience to you.
+                        </p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mobile espresso bar</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Custom drink menus</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Professional setup</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Machine Help -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="service-title">Machine Help</h3>
+                        <p class="service-subtitle">Keep your espresso gear in top shape</p>
+                        <p class="service-description">
+                            Expert maintenance and troubleshooting for your espresso equipment. 
+                            From routine cleaning to complex repairs, we ensure your machine 
+                            delivers perfect shots every time.
+                        </p>
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Deep cleaning service</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Calibration & tuning</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Repair consultation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WAITLIST SECTION -->
+        <section id="waitlist" class="waitlist-section">
+            <div class="container">
+                <div class="waitlist-content">
+                    <div class="waitlist-info">
+                        <h2 class="waitlist-title">Join Our Exclusive Waitlist</h2>
+                        <p class="waitlist-description">
+                            Be the first to experience MyLocalBarista services in your area. 
+                            Get early access, special pricing, and priority booking when we launch.
+                        </p>
+                        <div class="waitlist-benefits">
+                            <div class="benefit-item">
+                                <i class="fas fa-star"></i>
+                                <span>Early access to services</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-percentage"></i>
+                                <span>Launch discount pricing</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Priority booking slots</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Waitlist Form -->
+                    <div class="waitlist-form-container">
+                        <form class="waitlist-form" id="waitlist-form">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" id="name" name="name" class="form-input" required 
+                                       placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required 
+                                       placeholder="your.email@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="zip" class="form-label">Zip Code *</label>
+                                <input type="text" id="zip" name="zip" class="form-input" required 
+                                       placeholder="12345" pattern="[0-9]{5}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="interest" class="form-label">Primary Interest *</label>
+                                <select id="interest" name="interest" class="form-select" required>
+                                    <option value="">Select your primary interest</option>
+                                    <option value="training">Training - Learn espresso & latte art</option>
+                                    <option value="events">Events - Barista for gatherings</option>
+                                    <option value="machine-help">Machine Help - Equipment maintenance</option>
+                                    <option value="all">All services interest me</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Do you currently own an espresso machine?</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="espresso_machine" value="yes" class="radio-input">
+                                        <span class="radio-custom"></span>
+                                        Yes, I have an espresso machine
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="espresso_machine" value="no" class="radio-input">
+                                        <span class="radio-custom"></span>
+                                        No, but I'm interested in getting one
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="espresso_machine" value="considering" class="radio-input">
+                                        <span class="radio-custom"></span>
+                                        I'm considering purchasing one
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comments" class="form-label">Additional Comments</label>
+                                <textarea id="comments" name="comments" class="form-textarea" rows="3" 
+                                         placeholder="Tell us more about your coffee interests or specific needs..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full-width">
+                                <i class="fas fa-paper-plane"></i>
+                                Join the Waitlist
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="nav-brand">
+                            <i class="fas fa-coffee nav-icon"></i>
+                            <h3 class="brand-name">MyLocalBarista</h3>
+                        </div>
+                        <p class="footer-tagline">Bringing café-quality coffee culture to you.</p>
+                    </div>
+                    <div class="footer-links">
+                        <a href="#services" class="footer-link">Services</a>
+                        <a href="#waitlist" class="footer-link">Waitlist</a>
+                        <a href="#" class="footer-link">About</a>
+                        <a href="#" class="footer-link">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 MyLocalBarista. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- JavaScript Files -->
+    <script src="js/customization.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
